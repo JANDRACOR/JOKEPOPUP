@@ -1,0 +1,38 @@
+name: Chrome Extension CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # o la versión que necesites
+
+      - name: Install dependencies (if any)
+        run: npm install 
+
+      - name: Test extension (optional)
+        run: npm test
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Package extension
+        run: zip -r extension.zip . # Empaquetar todo en un archivo ZIP
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: extension
+          path: extension.zip
