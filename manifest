@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Chistes de Programación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>¡Ríete un poco!</h1>
+        <div id="joke-container">
+            </div>
+
+        <div class="category-selection">
+            <label for="category-select">Categoría:</label>
+            <select id="category-select">
+                <option value="todos">Todos</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JavaScript</option>
+                <option value="html">HTML</option>
+            </select>
+        </div>
+
+        <button id="generate-button">Nuevo Chiste</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
